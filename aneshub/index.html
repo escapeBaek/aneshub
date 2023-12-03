@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANESHUB</title>
+  </head>
+  <body>
+    <h1>WELCOME TO ANESHUB</h1>
+    <div>
+      <a href="em_calc.html">EM CALCULATOR</a>
+      <a href="">PEDIATRIC CALCULATOR</a>
+      <a href="">COAG ASSIST</a>
+      <a href="">DRUG DICTIONARY</a>
+      <a href="">BOARD</a>
+      <a href="">ON CONSTRUCTION</a>
+    </div>
+    <div>
+      <p>QUICK ANESTHESIA TOOL FOR ANESTHESIA PROVIDERS</p>
+      <img src="syringe.jpg" alt="syringe image" />
+    </div>
+    <div>
+      QUICK MENU FOR SNUH USERS
+      <br />
+      <a href="https://dept.snuh.org/dept/AN/index.do">SNUHANE</a>
+      <a href="https://db.anesthesia.co.kr/">OP_SCH</a>
+      <a href="https://snuh.vitaldb.net/">VITALDB</a>
+      <a href="https://pie.med.utoronto.ca/tee/">TEE</a>
+      <a href="https://pie.med.utoronto.ca/VB/VB_content/simulation.html"
+        >FOB</a
+      >
+      <a href="">RARE DISEASES</a>
+    </div>
+    <h2>test</h2>
+    <p id="cat"></p>
+    fetch
+    <script>
+      function getCatFact() {
+        fetch("https://cat-fact.herokuapp.com")
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .then((data) => {
+            document.getElementById("temperature").innerHTML =
+              data["temperature"];
+          });
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+    fetch("https://goweather.herokuapp.com/weather/Seoul")
+  .then((response) => response.json()) 
+  여기서 fetch를 통해 가지고 온 데이터를 해당 서버에서 받기 기다려야 하니 then으로 받는다. 즉 이를 통해 데이터를 받으면
+  이걸 response를 임시 함수로 받아서 json 형식, 즉 딕셔너리 형식으로 다시 데이터화 한다.
+  .then((data) => console.log(data));
+  그러면 여기서 이걸 다시 받아서 console log로 보여준다.
+-->

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANESCALC</title>
+  </head>
+  <body>
+    <h1>WELCOME TO ANESCALC</h1>
+    <p>
+      This page is set to calculate EM drug dose and rate calculation in easy
+      and fast manner
+    </p>
+    <h3>Common variable</h3>
+    <a>Input patient WEIGHT</a>
+    <br />
+    <input type="text" id="weight" placeholder="input numeric value" />kg
+    <br /><br />
+
+    <!--placeholder를 이용해서 해당 위치에 default로 표시될 값을 지정할 수 있다.-->
+    <div style="border-style: solid">
+      <h3><strong>NOREPINEPHRINE/EPINEPHRINE</strong></h3>
+      <p>
+        Input NEP/EPI DOSE<br /><input
+          type="text"
+          id="doseNEP"
+          placeholder="input numeric value"
+        />mcg/ml
+      </p>
+      <p>
+        Input NEP/EPI DOSERATE<br /><input
+          type="text"
+          id="doseRateNEP"
+          placeholder="input numeric value"
+        />mcg/kg/min
+      </p>
+      <strong>Reference</strong> : 0.01~1mcg/kg/min or 2~20mcg/min<br /><br />
+      <button onclick="doseCalc();">NEPi/EPIi Calculate</button>
+      <br />
+      <br />
+      <a><strong>RESULT</strong></a>
+      <br />
+      <input type="text" id="resultNEP" />ml/hr <br /><br />
+    </div>
+    <div style="border-style: solid">
+      <h3><strong>DOPAMINE/DOBUTAMINE</strong></h3>
+      <p>
+        Input DOPA/DOBU DOSE<br /><input
+          type="text"
+          id="doseDOPA"
+          placeholder="input numeric value"
+        />mg/ml
+      </p>
+      <p>
+        Input DOPA/DOBU DOSERATE<br /><input
+          type="text"
+          id="doseRateDOPA"
+          placeholder="input numeric value"
+        />mcg/kg/min
+      </p>
+      <strong>DOPA Reference</strong> : ~3mcg/kg/min(UO↑),
+      (3~5)~10mcg/kg/min(UO↑, beta), 10mcg/kg/min~(alpha), 20mcg/kg/min(NE
+      release)<br />
+      <strong>DOBU Reference</strong> : 2~20mcg/kg/min<br /><br />
+      <button onclick="doseCalc();">DOPAi/DOBUi Calculate</button>
+      <br />
+      <br />
+      <a><strong>RESULT</strong></a>
+      <br />
+      <input type="text" id="resultDOPA" />ml/hr <br /><br />
+    </div>
+    <div style="border-style: solid">
+      <h3><strong>NITROGLYCERIN/SNP</strong></h3>
+      <p>
+        Input NTG/SNP DOSE<br /><input
+          type="text"
+          id="doseNTG"
+          placeholder="input numeric value"
+        />mg/ml
+      </p>
+      <p>
+        Input NTG/SNP DOSERATE<br /><input
+          type="text"
+          id="doseRateNTG"
+          placeholder="input numeric value"
+        />mcg/kg/min
+      </p>
+      <strong>NTG/SNP Reference</strong> :0.5~10mcg/kg/min<br /><br />
+      <button onclick="doseCalc();">NTGi/SNPi Calculate</button>
+      <br />
+      <br />
+      <a><strong>RESULT</strong></a>
+      <br />
+      <input type="text" id="resultNTG" />ml/hr <br /><br />
+    </div>
+    <script>
+      /* FUNCTION : doseCalcNEP
+        1. weight를 가지고 온다.
+        2. dose를 가지고 온다
+        3. dose rate를 가지고 온다.
+        4. x=(DR*W/D)*60 ml/hr
+        */
+      var doseCalc = function () {
+        /*여러 약에 대한 dose rate calculation을 하나의 function으로 해결*/
+
+        /*공통 요소 입력*/
+        var wt = document.querySelector("#weight").value;
+
+        /*NEP/EPI variable 입력*/
+        var dnep = document.querySelector("#doseNEP").value;
+        var drnep = document.querySelector("#doseRateNEP").value;
+
+        /*DOPA/DOBU variable 입력*/
+        var ddopa = document.querySelector("#doseDOPA").value;
+        var drdopa = document.querySelector("#doseRateDOPA").value;
+
+        /*NTG/SNP variable 입력*/
+        var dntg = document.querySelector("#doseNTG").value;
+        var drntg = document.querySelector("#doseRateNTG").value;
+
+        /*NEP/EPI 결과 도출*/
+        var resultNEP =
+          (parseFloat(drnep) * parseFloat(wt) * 60) / parseFloat(dnep);
+        document.querySelector("#resultNEP").value = resultNEP;
+
+        /*DOPA/DOBU 결과 도출*/
+        var resultDOPA =
+          (parseFloat(drdopa) * parseFloat(wt) * 60) /
+          (parseFloat(ddopa) * 1000);
+        document.querySelector("#resultDOPA").value = resultDOPA;
+
+        /*NTG/SNP 결과 도출*/
+        var resultNTG =
+          (parseFloat(drntg) * parseFloat(wt) * 60) / (parseFloat(dntg) * 1000);
+        document.querySelector("#resultNTG").value = resultNTG;
+      };
+      /*input 값을 text로 받기 때문에 parseFloat를 이용해서 숫자로 변경하는 것이다*/
+    </script>
+
+    <div style="border-style: solid">
+      <h3><strong>VASOPRESSIN</strong></h3>
+      <a>Input drug DOSE</a>
+      <br />
+      <input type="text" id="dose" placeholder="input numeric value" />
+      <br />
+      <a>Input drug DOSERATE(mcg/kg/min)</a>
+      <br />
+      <input type="text" id="doserate" placeholder="input numeric value" />
+      <br />
+      <button onclick="doseCalc();">Calculate</button>
+      <br />
+      <br />
+      <a><strong>RESULT</strong></a>
+      <br />
+      <input type="text" id="x" />ml/hr <br /><br />
+    </div>
+
+    <div style="border-style: solid">
+      <h3><strong>TRANEXAMIC ACID</strong></h3>
+      <a>Input drug DOSE</a>
+      <br />
+      <input type="text" id="dose" placeholder="input numeric value" />
+      <br />
+      <a>Input drug DOSERATE(mcg/kg/min)</a>
+      <br />
+      <input type="text" id="doserate" placeholder="input numeric value" />
+      <br />
+      <button onclick="doseCalc();">Calculate</button>
+      <br />
+      <br />
+      <a><strong>RESULT</strong></a>
+      <br />
+      <input type="text" id="x" />ml/hr <br /><br />
+    </div>
+  </body>
+</html>
