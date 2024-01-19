@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cs-amazon-cart {
+        background-color: rgb(255, 216, 20);
+        border: none;
+        padding: 5px 30px;
+        border-radius: 15px;
+        font-weight: bold;
+        font: Arial;
+      }
+
+      .cs-uber-now {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      .cs-uber-later {
+        background-color: rgb(230, 230, 230);
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <button class="cs-amazon-cart">Add to Cart</button>
+    </p>
+
+    <p>
+      <button class="cs-uber-now">Request now</button>
+      <button class="cs-uber-later">Schedule for later</button>
+    </p>
+
+    <p>
+      <button class="js-button">Test</button>
+    </p>
+
+    <p>
+      <button
+        class="is-toggled js-gaming"
+        onclick="
+        const gamingButton = document.querySelector('.js-gaming');
+        if(!gamingButton.classList.contains('is-toggled')) {
+          gamingButton.innerHTML = 'Gaming OFF';
+          gamingButton.classList.add('is-toggled');
+        } else  {
+          gamingButton.classList.remove('is-toggled');
+          gamingButton.innerHTML = 'Gaming ON';
+        }
+        "
+      >
+        Gaming ON
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="is-toggled js-gaming3"
+        onclick="
+      const gaming3 = document.querySelector('.js-gaming3');
+      if(!gaming3.classList.contains('is-toggled')) {
+        gaming3.innerHTML = 'Gaming OFF';
+        gaming3.classList.add('is-toggled');
+      } else  {
+        gaming3.classList.remove('is-toggled');
+        gaming3.innerHTML = 'Gaming ON';
+      }
+      "
+      >
+        Gaming
+      </button>
+      <button
+        class="is-toggled js-music3"
+        onclick="
+      const music3 = document.querySelector('.js-music3');
+      if(!music3.classList.contains('is-toggled')) {
+        music3.innerHTML = 'Music OFF';
+        music3.classList.add('is-toggled');
+      } else  {
+        music3.classList.remove('is-toggled');
+        music3.innerHTML = 'Music ON';
+      }
+    "
+      >
+        Music
+      </button>
+      <button
+        class="is-toggled js-tech3"
+        onclick="
+        toggleOn('tech3', 'is-toggled', 'js-tech3');
+  "
+      >
+        Tech
+      </button>
+    </p>
+
+    <script>
+      const testButton = document.querySelector(".js-button");
+      console.log(testButton.classList.contains("js-button"));
+
+      function toggleOn(variable1, variable2, variable3) {
+        const variable1 = document.querySelector(".variable3");
+        if (!variable1.classList.contains("variable2")) {
+          variable1.innerHTML = "OFF";
+          variable1.classList.add("variable2");
+        } else {
+          variable1.innerHTML = "ON";
+          variable1.classList.remove("variable2");
+        }
+      }
+    </script>
+  </body>
+</html>

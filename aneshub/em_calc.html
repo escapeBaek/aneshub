@@ -4,173 +4,235 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANESCALC</title>
+    <link rel="stylesheet" href="em_calc.css" />
   </head>
+
+  <!--header 같은게 있어서 바로 해당 위치로 이동할 수 있으면 편할 것 같음!-->
+  <!--버튼을 떠다니게 설계해서 어디든지 누를 수 있으면 칸도 줄이고 편리할 것 같음!-->
   <body>
     <h1>WELCOME TO ANESCALC</h1>
-    <p>
-      This page is set to calculate EM drug dose and rate calculation in easy
-      and fast manner
-    </p>
-    <h3>Common variable</h3>
-    <a>Input patient WEIGHT</a>
-    <br />
-    <input type="text" id="weight" placeholder="input numeric value" />kg
-    <br /><br />
+    <p>Calculate EM drug dose or rate in a click!</p>
+
+    <div class="dashboard">
+      <p class="js-title">Common variable</p>
+      <p class="js-subtitle">Input patient WEIGHT</p>
+      <input
+        type="number"
+        class="js-weight"
+        class="cs-inputbox"
+        placeholder="input numeric value"
+      />kg
+    </div>
 
     <!--placeholder를 이용해서 해당 위치에 default로 표시될 값을 지정할 수 있다.-->
-    <div style="border-style: solid">
-      <h3><strong>NOREPINEPHRINE/EPINEPHRINE</strong></h3>
-      <p>
-        Input NEP/EPI DOSE<br /><input
-          type="text"
-          id="doseNEP"
-          placeholder="input numeric value"
-        />mcg/ml
-      </p>
-      <p>
-        Input NEP/EPI DOSERATE<br /><input
-          type="text"
-          id="doseRateNEP"
-          placeholder="input numeric value"
-        />mcg/kg/min
-      </p>
-      <strong>Reference</strong> : 0.01~1mcg/kg/min or 2~20mcg/min<br /><br />
-      <button onclick="doseCalc();">NEPi/EPIi Calculate</button>
-      <br />
-      <br />
-      <a><strong>RESULT</strong></a>
-      <br />
-      <input type="text" id="resultNEP" />ml/hr <br /><br />
-    </div>
-    <div style="border-style: solid">
-      <h3><strong>DOPAMINE/DOBUTAMINE</strong></h3>
-      <p>
-        Input DOPA/DOBU DOSE<br /><input
-          type="text"
-          id="doseDOPA"
-          placeholder="input numeric value"
-        />mg/ml
-      </p>
-      <p>
-        Input DOPA/DOBU DOSERATE<br /><input
-          type="text"
-          id="doseRateDOPA"
-          placeholder="input numeric value"
-        />mcg/kg/min
-      </p>
-      <strong>DOPA Reference</strong> : ~3mcg/kg/min(UO↑),
-      (3~5)~10mcg/kg/min(UO↑, beta), 10mcg/kg/min~(alpha), 20mcg/kg/min(NE
-      release)<br />
-      <strong>DOBU Reference</strong> : 2~20mcg/kg/min<br /><br />
-      <button onclick="doseCalc();">DOPAi/DOBUi Calculate</button>
-      <br />
-      <br />
-      <a><strong>RESULT</strong></a>
-      <br />
-      <input type="text" id="resultDOPA" />ml/hr <br /><br />
-    </div>
-    <div style="border-style: solid">
-      <h3><strong>NITROGLYCERIN/SNP</strong></h3>
-      <p>
-        Input NTG/SNP DOSE<br /><input
-          type="text"
-          id="doseNTG"
-          placeholder="input numeric value"
-        />mg/ml
-      </p>
-      <p>
-        Input NTG/SNP DOSERATE<br /><input
-          type="text"
-          id="doseRateNTG"
-          placeholder="input numeric value"
-        />mcg/kg/min
-      </p>
-      <strong>NTG/SNP Reference</strong> :0.5~10mcg/kg/min<br /><br />
-      <button onclick="doseCalc();">NTGi/SNPi Calculate</button>
-      <br />
-      <br />
-      <a><strong>RESULT</strong></a>
-      <br />
-      <input type="text" id="resultNTG" />ml/hr <br /><br />
-    </div>
-    <script>
-      /* FUNCTION : doseCalcNEP
-        1. weight를 가지고 온다.
-        2. dose를 가지고 온다
-        3. dose rate를 가지고 온다.
-        4. x=(DR*W/D)*60 ml/hr
-        */
-      var doseCalc = function () {
-        /*여러 약에 대한 dose rate calculation을 하나의 function으로 해결*/
-
-        /*공통 요소 입력*/
-        var wt = document.querySelector("#weight").value;
-
-        /*NEP/EPI variable 입력*/
-        var dnep = document.querySelector("#doseNEP").value;
-        var drnep = document.querySelector("#doseRateNEP").value;
-
-        /*DOPA/DOBU variable 입력*/
-        var ddopa = document.querySelector("#doseDOPA").value;
-        var drdopa = document.querySelector("#doseRateDOPA").value;
-
-        /*NTG/SNP variable 입력*/
-        var dntg = document.querySelector("#doseNTG").value;
-        var drntg = document.querySelector("#doseRateNTG").value;
-
-        /*NEP/EPI 결과 도출*/
-        var resultNEP =
-          (parseFloat(drnep) * parseFloat(wt) * 60) / parseFloat(dnep);
-        document.querySelector("#resultNEP").value = resultNEP;
-
-        /*DOPA/DOBU 결과 도출*/
-        var resultDOPA =
-          (parseFloat(drdopa) * parseFloat(wt) * 60) /
-          (parseFloat(ddopa) * 1000);
-        document.querySelector("#resultDOPA").value = resultDOPA;
-
-        /*NTG/SNP 결과 도출*/
-        var resultNTG =
-          (parseFloat(drntg) * parseFloat(wt) * 60) / (parseFloat(dntg) * 1000);
-        document.querySelector("#resultNTG").value = resultNTG;
-      };
-      /*input 값을 text로 받기 때문에 parseFloat를 이용해서 숫자로 변경하는 것이다*/
-    </script>
-
-    <div style="border-style: solid">
-      <h3><strong>VASOPRESSIN</strong></h3>
-      <a>Input drug DOSE</a>
-      <br />
-      <input type="text" id="dose" placeholder="input numeric value" />
-      <br />
-      <a>Input drug DOSERATE(mcg/kg/min)</a>
-      <br />
-      <input type="text" id="doserate" placeholder="input numeric value" />
-      <br />
-      <button onclick="doseCalc();">Calculate</button>
-      <br />
-      <br />
-      <a><strong>RESULT</strong></a>
-      <br />
-      <input type="text" id="x" />ml/hr <br /><br />
+    <!--============================================-->
+    <div id="nep-section" class="cs-drug-section card">
+      <p class="cs-title">NOREPINEPHRINE/EPINEPHRINE</p>
+      <p class="cs-subtitle">Input NEP/EPI CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-nep-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mcg/ml<br /><br />
+      <p class="js-subtitle">Input NEP/EPI DOSERATE</p>
+      <input
+        type="number"
+        class="js-nep-doserate cs-inputbox"
+        placeholder="input numeric value"
+      />mcg/kg/min<br /><br />
+      <p class="cs-reference">Reference : 0.01~1mcg/kg/min or 2~20mcg/min</p>
+      <p class="cs-subtitle">Result</p>
+      <p class="js-nep-result cs-result"></p>
     </div>
 
-    <div style="border-style: solid">
-      <h3><strong>TRANEXAMIC ACID</strong></h3>
-      <a>Input drug DOSE</a>
-      <br />
-      <input type="text" id="dose" placeholder="input numeric value" />
-      <br />
-      <a>Input drug DOSERATE(mcg/kg/min)</a>
-      <br />
-      <input type="text" id="doserate" placeholder="input numeric value" />
-      <br />
-      <button onclick="doseCalc();">Calculate</button>
-      <br />
-      <br />
-      <a><strong>RESULT</strong></a>
-      <br />
-      <input type="text" id="x" />ml/hr <br /><br />
+    <!--==========================================-->
+    <div id="dopa-section" class="cs-drug-section">
+      <p class="cs-title">DOPAMINE/DOBUTAMINE</p>
+      <p class="cs-subtitle">Input DOPA/DOBU CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-dopa-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mg/ml <br /><br />
+      <p class="cs-subtitle">Input DOPA/DOBU DOSERATE</p>
+      <input
+        type="number"
+        class="js-dopa-doserate cs-inputbox"
+        placeholder="input numeric value"
+      />mcg/kg/min<br /><br />
+
+      <p class="cs-reference">
+        DOPA Reference : ~3mcg/kg/min(UO↑), (3~5)~10mcg/kg/min(UO↑, beta),
+        10mcg/kg/min~(alpha), 20mcg/kg/min(NE release)
+      </p>
+      <p class="cs-reference">DOBU Reference : 2~20mcg/kg/min</p>
+
+      <p class="cs-subtitle">Result</p>
+      <p class="js-dopa-result cs-result"></p>
     </div>
+
+    <!--==========================================-->
+    <div id="ntg-section" class="cs-drug-section">
+      <p class="cs-title">NITROGLYCERIN/SNP</p>
+      <p class="cs-subtitle">Input NTG/SNP CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-ntg-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mg/ml<br /><br />
+      <p class="cs-subtitle">Input NTG/SNP DOSERATE</p>
+      <input
+        type="number"
+        class="js-ntg-doserate cs-inputbox"
+        placeholder="input numeric value"
+      />mcg/kg/min<br /><br />
+      <p class="cs-reference">NTG/SNP Reference :0.5~10mcg/kg/min</p>
+      <p class="cs-subtitle">Result</p>
+      <p class="js-ntg-result cs-result"></p>
+    </div>
+
+    <!--==========================================-->
+    <div id="vaso-section" class="cs-drug-section">
+      <p class="cs-title">VASOPRESSIN</p>
+      <p class="cs-subtitle">Input drug CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-vaso-conc cs-inputbox"
+        placeholder="input numeric value"
+      />unit/ml <br /><br />
+      <p class="cs-subtitle">Input drug DOSERATE#1(unit/min)</p>
+      <input
+        type="number"
+        class="js-vaso-doserate1 cs-inputbox"
+        placeholder="input numeric value"
+      />unit/min <br /><br />
+      <p class="cs-reference">
+        VASOPRESSIN Reference#1 :sepsis ; 0.01~0.04IU/min or 0.04IU/min fixed
+      </p>
+      <p class="cs-subtitle">Input drug DOSERATE#2(unit/kg/hr)</p>
+      <input
+        type="number"
+        class="js-vaso-doserate2 cs-inputbox"
+        placeholder="input numeric value"
+      />unit/kg/hr <br /><br />
+      <p class="cs-reference">VASOPRESSIN Reference#2 :0.01~0.04IU/kg/hr</p>
+
+      <p class="cs-subtitle">Result#1</p>
+      <p class="js-vaso-result1 cs-result"></p>
+
+      <p class="cs-subtitle">Result#2</p>
+      <p class="js-vaso-result2 cs-result"></p>
+    </div>
+
+    <!--==========================================-->
+    <div id="ppf-section" class="cs-drug-section">
+      <p class="cs-title">Propofol continuous infusion</p>
+      <p class="cs-subtitle">Input drug CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-ppf-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mg/ml <br /><br />
+      <p class="cs-reference">
+        Propofol reference maintenance dose rate :100~200mcg/kg/hr
+      </p>
+
+      <p class="cs-subtitle">Result</p>
+      <p class="js-ppf-result1 cs-result">Min infusion :</p>
+      <p class="js-ppf-result2 cs-result">Max infusion :</p>
+    </div>
+
+    <!--==========================================-->
+    <div id="suftn-section" class="cs-drug-section">
+      <p class="cs-title">SuFTN continuous infusion</p>
+      <p class="cs-subtitle">Input drug CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-suftn-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mg/ml <br /><br />
+      <p class="cs-reference">
+        SuFTN reference maintenance dose rate: 0.5~1.5mcg/kg/hr
+      </p>
+      <p class="cs-subtitle">Result</p>
+      <p class="js-suftn-result1 cs-result">Min infusion :</p>
+      <p class="js-suftn-result2 cs-result">Max infusion :</p>
+    </div>
+
+    <!--==========================================-->
+    <div id="rftn-section" class="cs-drug-section">
+      <p class="cs-title">RemiFTN continuous infusion</p>
+      <p class="cs-subtitle">Input drug CONCENTRATION</p>
+      <input
+        type="number"
+        class="js-rftn-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mg/ml <br /><br />
+
+      <p class="cs-reference">
+        RemiFTN reference maintenance dose rate: 0.1~1mcg/kg/min
+      </p>
+
+      <p class="cs-subtitle">Result</p>
+      <p class="js-rftn-result1 cs-result">Min infusion :</p>
+      <p class="js-rftn-result2 cs-result">Max infusion :</p>
+    </div>
+
+    <!--==========================================-->
+    <div id="txa-section" class="cs-drug-section">
+      <p class="cs-title">TRANEXAMIC ACID</p>
+      <p class="cs-subtitle">Input drug CONCENTRATION</p>
+      <br />
+      <input
+        type="number"
+        class="js-txa-conc cs-inputbox"
+        placeholder="input numeric value"
+      />mg/ml <br /><br />
+
+      <p class="cs-reference">TXA infusion: 10mg/kg for 20min => 1mg/kg/hr</p>
+
+      <p class="cs-subtitle">Result</p>
+      <p class="js-txa-loading cs-result">Loading infusion(for 20min) :</p>
+      <p class="js-txa-conti cs-result">Continuous infusion :</p>
+    </div>
+
+    <!--==========================================-->
+    <button onclick="scrollToSection('nep-section');" class="nep-btn">
+      NEP/EPI
+    </button>
+
+    <button onclick="scrollToSection('dopa-section');" class="dopa-btn">
+      DOPA/DOBU
+    </button>
+
+    <button onclick="scrollToSection('ntg-section');" class="ntg-btn">
+      NTG/SNP
+    </button>
+
+    <button onclick="scrollToSection('vaso-section');" class="vaso-btn">
+      VASO
+    </button>
+
+    <button onclick="scrollToSection('ppf-section');" class="ppf-btn">
+      PPF C.I.
+    </button>
+
+    <button onclick="scrollToSection('suftn-section');" class="sftn-btn">
+      SFTN C.I.
+    </button>
+
+    <button onclick="scrollToSection('rftn-section');" class="rftn-btn">
+      RFTN C.I.
+    </button>
+
+    <button onclick="scrollToSection('txa-section');" class="txa-btn">
+      TXA C.I.
+    </button>
+
+    <!--==========================================-->
+    <button class="floating-btn js-calculate">Calculate</button>
+
+    <!--==========================================-->
+    <script src="em_calc.js"></script>
   </body>
 </html>

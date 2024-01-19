@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11-exercise</title>
+  </head>
+  <body>
+    <script>
+      //11a
+      const nums = [10, 20, 30];
+      nums[2] = 99;
+      console.log(nums);
+
+      console.log(getLastValue(nums));
+
+      console.log(arraySwap(nums));
+
+      //11b
+      function getLastValue(arr) {
+        const lastIndex = arr.length - 1;
+        const lastValue = arr[lastIndex];
+        return lastValue;
+      }
+
+      //11c
+      function arraySwap(arr) {
+        const lastIndex = arr.length - 1;
+        const lastValue = arr[lastIndex];
+        const firstValue = arr[0];
+
+        arr[lastIndex] = firstValue;
+        arr[0] = lastValue;
+
+        return arr;
+      }
+
+      //11d
+      for (let i = 0; i <= 10; i++) {
+        if (i % 2 === 0) {
+          console.log(i);
+        }
+      }
+
+      //11e
+      for (let i = 5; i >= 0; i--) {
+        console.log(i);
+      }
+
+      //11f
+      let i = 0;
+      while (i <= 10) {
+        if (i % 2 === 0) {
+          console.log(i);
+        }
+        i++;
+      }
+
+      let j = 5;
+      while (j >= 0) {
+        console.log(j);
+        j--;
+      }
+
+      //11g
+      let listG = [1, 2, 3];
+      for (let i = 0; i < listG.length; i++) {
+        listG[i] = listG[i] + 1;
+      }
+      console.log(listG);
+
+      //11h
+      function addOne(array) {
+        for (let i = 0; i < array.length; i++) {
+          array[i] = array[i] + 1;
+        }
+        console.log(array);
+      }
+
+      addOne([1, 2, 3]);
+      addOne([-2, -1, 0, 99]);
+
+      //11i
+      function addNum(array, variable) {
+        for (let i = 0; i < array.length; i++) {
+          array[i] = array[i] + variable;
+        }
+        console.log(array);
+      }
+
+      addNum([1, 2, 3], 2);
+      addNum([1, 2, 3], 3);
+      addNum([-2, -1, 0, 99], 2);
+
+      //11j
+      function addArrays(array1, array2) {
+        for (let i = 0; i < array1.length; i++) {
+          array1[i] = array1[i] + array2[i];
+        }
+        console.log(array1);
+      }
+
+      addArrays([1, 1, 2], [1, 1, 3]);
+      addArrays([1, 2, 3], [4, 5, 6]);
+
+      //11k
+      function countPositive(array) {
+        let j = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] > 0) {
+            j++;
+          }
+        }
+        console.log(j);
+      }
+
+      countPositive([1, -1, 5]);
+      countPositive([-2, 3, -5, 7, 10]);
+
+      //11o, 11p
+      function searchSearch(array) {
+        let index = -1;
+
+        for (i = 0; i < array.length; i++) {
+          if (array[i] === "search") {
+            index = i;
+            break;
+          }
+        }
+
+        console.log(index);
+      }
+
+      searchSearch(["hello", "world", "search", "good"]);
+      searchSearch(["not", "found"]);
+      searchSearch(["hello", "world", "search", "good", "search"]);
+
+      //11q
+      function findIndex(array, word) {
+        let index = -1;
+
+        for (i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            index = i;
+            break;
+          }
+        }
+        return index;
+      }
+
+      console.log(findIndex(["green", "red", "blue", "red"], "red"));
+      console.log(findIndex(["green", "red", "blue", "red"], "yellow"));
+
+      //11r
+      function removeEgg(array) {
+        let result = [];
+        let eggCount = 0;
+
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === "egg" && eggCount < 2) {
+            eggCount++;
+            continue;
+          }
+          result.push(array[i]);
+        }
+        return result;
+      }
+
+      console.log(removeEgg(["egg", "egg", "spam", "spam", "spam"]));
+      console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
+
+      //11s
+      console.log(removeEgg(["egg", "apple", "egg", "egg", "ham", "egg"]));
+
+      //11t
+      function removeEggReverse(array) {
+        let result = [];
+        let eggCount = 0;
+        let arrayReverse = array.slice().reverse();
+
+        for (let i = 0; i < array.length; i++) {
+          if (arrayReverse[i] === "egg" && eggCount < 2) {
+            eggCount++;
+            continue;
+          }
+          result.push(arrayReverse[i]);
+        }
+        return result.reverse();
+      }
+
+      console.log(removeEggReverse(["egg", "apple", "egg", "egg", "ham"]));
+
+      //11u
+      const foods = ["egg", "apple", "egg", "egg", "ham"];
+      console.log(foods);
+      console.log(removeEggReverse(foods));
+      console.log(foods);
+    </script>
+  </body>
+</html>

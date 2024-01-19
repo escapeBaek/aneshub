@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Projects</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe();" class="js-subscribe-button">
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input
+      placeholder="Cost of order"
+      class="js-cost-input"
+      onkeydown="handleCostKeydown(event)"
+    />
+    <!--onkeydown을 이용해서 enter를 누르면 실행할 수 있게 만들 수 있다.-->
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <!--9h-->
+    <input
+      class="js-input"
+      onkeyup="
+    let inputElement = document.querySelector('.js-input').value;
+    document.querySelector('.js-text').innerHTML = inputElement;
+    "
+    />
+    <p class="js-text"></p>
+
+    <script>
+      function subscribe() {
+        const buttonElement = document.querySelector(".js-subscribe-button");
+
+        if (buttonElement.innerHTML === "Subscribe") {
+          buttonElement.innerHTML = "Subscribed";
+        } else {
+          buttonElement.innerHTML = "Subscribe";
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        //input은 innerHTML로 받을 수가 없어서 value 로 받아야 한다.
+        let cost = Number(inputElement.value) * 100;
+
+        if (cost < 4000) {
+          cost = (cost + 1000) / 100;
+        }
+        console.log(cost);
+        document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
+      }
+
+      function handleCostKeydown(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+    </script>
+  </body>
+</html>

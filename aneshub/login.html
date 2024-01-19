@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      .container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #0f2c59;
+        border-radius: 5px;
+      }
+      .container h2 {
+        text-align: center;
+      }
+      .container input[type="text"],
+      .container input[type="password"] {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #0f2c59;
+        border-radius: 5px;
+      }
+
+      .container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #0f2c59;
+        color: #fdf6ec;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      body {
+        background-color: #fdf6ec;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form>
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+  </body>
+</html>

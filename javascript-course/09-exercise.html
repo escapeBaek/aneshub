@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 9a, 9b-->
+    <button>9a</button>
+    <button
+      onclick="
+    if (document.querySelector('.js-button-9b').innerHTML === '9b') {
+      document.querySelector('.js-button-9b').innerHTML = '9b done!';
+    } else {
+      document.querySelector('.js-button-9b').innerHTML = '9b';
+    }
+    "
+      class="js-button-9b"
+    >
+      9b
+    </button>
+<!--9c-->
+    <p>
+        <button onclick="coinChoice = 'heads';
+        document.querySelector('.js-coin-choice').innerHTML = `You chose: ${coinChoice}`;">heads</button>
+        <button onclick="coinChoice = 'tails';
+        document.querySelector('.js-coin-choice').innerHTML = `You chose: ${coinChoice}`;">tails</button>
+        <p class="js-coin-choice"></p>
+    </p>
+
+<!--9d-->
+    <p>
+        <!--9e, 9f-->
+        <input type="text" class="js-my-name" onkeydown="if (event.key === 'Enter') {displayName();}">
+        <button onclick="displayName();" >Submit</button>
+        <p class="js-message"></p>
+    </p>
+    <script>
+
+        let coinChoice = '';
+
+        function displayName(){
+            let writeMyName = document.querySelector('.js-my-name').value;
+            document.querySelector('.js-message').innerHTML = `Your name is: ${writeMyName}`;
+        }
+
+      console.log(document.querySelector("button"));
+    </script>
+  </body>
+</html>

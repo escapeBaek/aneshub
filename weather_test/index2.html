@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API test</title>
+</head>
+<body>
+    <h1>Weather of metropolitan cities in Korea</h1>
+    <div>
+        weather of Seoul
+    </div>
+    <button onclick=getWeather>check Seoul</button>
+    <p1 id="temperature"></p1>
+    <div>
+        weather of Busan
+    </div>
+    <button>check Busan</button>
+    <div>
+        weather of Daegu
+    </div>
+    <button>check Daegu</button>
+    <div>
+        weather of Daejeon
+    </div>
+    <button>check Daejeon</button>
+    <div>
+        weather of Incheon
+    </div>
+    <button>check Incheon</button>
+
+    <script>
+        function getWeather(){
+            fetch("https://goweather.herokuapp.com/weather/Seoul")
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById('temperature').innerHTML=data['temperature'];
+            });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,259 @@
+/* style.css */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Arial 대신 Windows 기본 폰트 사용 */
+  margin: 0;
+  padding: 0;
+  background-color: #fdf6ec;
+}
+
+h1 {
+  text-align: center;
+  color: #0f2c59;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #0f2c59;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px; /* 여백 추가 */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.container > div {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #fdf6ec;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out; /* 애니메이션 효과 추가 */
+}
+
+.container > div:hover {
+  transform: scale(1.05); /* 호버 시 약간 확대 */
+}
+
+a {
+  text-decoration: none;
+  color: #0f2c59;
+  display: block;
+  padding: 10px;
+}
+
+a:hover {
+  background-color: #fdf6ec;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Adjustments for small screens */
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.container2 > div {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #fdf6ec;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.container2 > div:hover {
+  transform: scale(1.05);
+}
+
+.container2 a {
+  text-decoration: none;
+  color: #fdf6ec;
+  display: block;
+  padding: 10px;
+}
+
+.container2 a:hover {
+  background-color: #fdf6ec;
+}
+
+.container2 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  background-color: #eadbc8;
+  color: #0f2c59;
+  margin: 0;
+  padding: 20px;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+div {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  text-align: left;
+}
+
+button {
+  background-color: #0f2c59;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #0f2c59;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.floating-btn:hover {
+  background-color: #0f2c59;
+}
+
+/* btn 스타일 */
+
+.nep-btn {
+  position: fixed;
+  top: 50px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.dopa-btn {
+  position: fixed;
+  top: 80px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.ntg-btn {
+  position: fixed;
+  top: 110px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.vaso-btn {
+  position: fixed;
+  top: 140px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.ppf-btn {
+  position: fixed;
+  top: 170px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.sftn-btn {
+  position: fixed;
+  top: 200px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.rftn-btn {
+  position: fixed;
+  top: 230px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+.txa-btn {
+  position: fixed;
+  top: 260px; /* Adjust this value to change the vertical position */
+  right: 20px; /* Adjust this value to change the horizontal position */
+  margin-bottom: 10px; /* Adjust this value to create the desired vertical spacing */
+  font-size: 12px; /* Adjust this value to decrease the font size */
+  padding: 6px 12px; /* Adjust this value to decrease the padding */
+}
+
+/* Adjustments for small screens */
+@media only screen and (max-width: 600px) {
+  .container,
+  .container2 {
+    flex-direction: column;
+  }
+}

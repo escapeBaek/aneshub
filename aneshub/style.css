@@ -1,0 +1,129 @@
+/* style.css */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Arial 대신 Windows 기본 폰트 사용 */
+  margin: 0;
+  padding: 0;
+  background-color: #fdf6ec;
+}
+
+h1 {
+  text-align: center;
+  color: #0f2c59;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #0f2c59;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px; /* 여백 추가 */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.container > div {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #eadbc8;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out; /* 애니메이션 효과 추가 */
+}
+
+.container > div:hover {
+  transform: scale(1.05); /* 호버 시 약간 확대 */
+}
+
+a {
+  text-decoration: none;
+  color: #0f2c59;
+  display: block;
+  padding: 10px;
+}
+
+a:hover {
+  background-color: #f5f5f5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Adjustments for small screens */
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.container2 > div {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #eadbc8;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.container2 > div:hover {
+  transform: scale(1.05);
+}
+
+.container2 a {
+  text-decoration: none;
+  color: #0f2c59;
+  display: block;
+  padding: 10px;
+}
+
+.container2 a:hover {
+  background-color: #f5f5f5;
+}
+
+.container2 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.header {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: #fdf6ec;
+}
+.header a {
+  text-decoration: none;
+  color: #0f2c59;
+  font-weight: bold;
+}
+
+/* Adjustments for small screens */
+@media only screen and (max-width: 600px) {
+  .container,
+  .container2 {
+    flex-direction: column;
+  }
+}

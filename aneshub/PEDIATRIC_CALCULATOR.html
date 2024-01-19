@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ped_calc.css" />
+    <title>PEDIATRIC CALCULATOR</title>
+  </head>
+  <body>
+    <h1>WELCOME TO PEDCALC</h1>
+    <p>Calculate PEDIATRIC drug and other variables in a click!</p>
+    <h3>Common variable</h3>
+    <a>Input patient AGE</a>
+    <br />
+    <input
+      type="text"
+      id="age"
+      placeholder="input numeric value"
+    />YO<br /><br />
+    <a>Input patient HEIGHT</a>
+    <br />
+    <input
+      type="text"
+      id="height"
+      placeholder="input numeric value"
+    />cm<br /><br />
+    <a>Input patient WEIGHT</a>
+    <br />
+    <input
+      type="text"
+      id="weight"
+      placeholder="input numeric value"
+    />kg<br /><br />
+    <!--========================================-->
+
+    <div style="border-style: solid">
+      <h3><strong>ENDOTRACHEAL TUBE</strong></h3>
+      <button onclick="pedCalcIntu();">calculate</button><br /><br />
+
+      <a><strong>ETT ID - Cuffed</strong></a>
+      <input type="text" id="ettIdCuff" />mm<br /><a
+        ><strong>ETT ID - Uncuffed</strong></a
+      >
+      <input type="text" id="ettIdUncuff" />mm<br />
+      <strong>Reference</strong> : 0~3mo : 3-3.5mm // 4-11mo : 3.5-4mm<br /><br />
+      <a><strong>ETT depth</strong></a>
+      <input type="text" id="ettDepth" />cm <br />
+      <strong>Reference</strong> : 0~3mo : 12cm // 4-11mo : 13.7<br /><br />
+    </div>
+
+    <!--========================================-->
+    <div style="border-style: solid">
+      <h3><strong>PEDIATRIC DRUG</strong></h3>
+      <button onclick="pedCalcDrug();">calculate</button><br /><br />
+
+      <a><strong>Atropine</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>Thiopental</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>Midazolam</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>Propofol</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>Rocuronium</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>Nasea</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>1%Lidocaine</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+
+      <a><strong>Atropine</strong></a
+      ><br />
+      <input
+        type="text"
+        id="atropineConc"
+        placeholder="input your concentration"
+      />mg/ml<br />
+      <input type="text" id="atropineMl" />ml<br />
+      <a>Reference : 0.02mg/kg</a><br /><br />
+    </div>
+
+    <script src="pediatric_calculator.js"></script>
+  </body>
+</html>
